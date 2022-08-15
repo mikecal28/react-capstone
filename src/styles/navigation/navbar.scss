@@ -1,0 +1,38 @@
+.navbar {
+  @include flex(rn, flex-end);
+  background-color: $nav-background;
+  @include box(100%, 5rem);
+
+  .nav-buttons {
+    user-select: none;
+    font-weight: 600;
+    width: 7rem;
+    height: 2.25rem;
+    margin: 0 1rem;
+    border-radius: 0.65rem;
+    cursor: pointer;
+    background-color: whitesmoke;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+    &:hover {
+      background-color: shade(whitesmoke, 8%);
+    }
+
+    &:focus {
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+    }
+
+    &:focus-visible {
+      box-shadow: none;
+    }
+  }
+
+  .active {
+    background-color: red;
+
+    &:hover {
+      background-color: shade(red, 8%);
+    }
+  }
+}

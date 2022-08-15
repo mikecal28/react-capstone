@@ -1,0 +1,300 @@
+@mixin box($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin grid($areas, $columns, $rows: false) {
+  display: grid;
+
+  @if $rows==false {
+    grid-template-areas: $areas;
+    grid-template-columns: $columns;
+  } @else {
+    grid-template-areas: $areas;
+    grid-template-columns: $columns;
+    grid-template-rows: $rows;
+  }
+}
+
+@mixin flex($direction: r, $justify: center, $align: center) {
+  display: flex;
+
+  @if $direction==c {
+    flex-flow: column wrap;
+  } @else if $direction==cn {
+    flex-flow: column nowrap;
+  } @else if $direction==r {
+    flex-flow: row wrap;
+  } @else if $direction==rn {
+    flex-flow: row nowrap;
+  }
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin cover-background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+// Font Sizing
+
+@function calculateRem($size) {
+  $remSize: calc($size / 16px);
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+// -----------
+
+@mixin pseudo(
+  $width: 100%,
+  $height: 100%,
+  $display: inline-block,
+  $pos: absolute,
+  $content: ""
+) {
+  content: $content;
+  display: $display;
+  position: $pos;
+  @include box($width, $height);
+}
+
+@mixin fade($type) {
+  @if $type== "hide" {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 1s, opacity 1s;
+  } @else if $type== "show" {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 1s, opacity 1s;
+  }
+}
+
+@mixin css3-prefix($prop, $value) {
+  -webkit-#{$prop}: #{$value};
+  -moz-#{$prop}: #{$value};
+  -ms-#{$prop}: #{$value};
+  -o-#{$prop}: #{$value};
+  #{$prop}: #{$value};
+}
+
+@mixin vertical-center {
+  position: relative;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+// Positions Start:
+
+@mixin abs-position($top: null, $right: null, $bottom: null, $left: null) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin rel-position($top: null, $right: null, $bottom: null, $left: null) {
+  position: relative;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin fxd-position($top: null, $right: null, $bottom: null, $left: null) {
+  position: fixed;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+// Positions End.
+
+@mixin text-shorten {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .inner-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+@function shade($color, $percent) {
+  @if not _is-color($color) {
+    @error "`#{$color}` is not a valid color for the `$color` argument in " +
+      "the `shade` mixin.";
+  } @else {
+    @return mix(#000, $color, $percent);
+  }
+}
+
+@function lighten($color, $percent) {
+  @if not _is-color($color) {
+    @error "`#{$color}` is not a valid color for the `$color` argument in " +
+      "the `shade` mixin.";
+  } @else {
+    @return mix(rgb(255, 255, 255), $color, $percent);
+  }
+}
+
+@mixin border(
+  $color: black,
+  $border-top: 1px solid,
+  $border-right: $border-top,
+  $border-bottom: $border-top,
+  $border-left: $border-top
+) {
+  border-top: $border-top $color;
+  border-right: $border-right $color;
+  border-bottom: $border-bottom $color;
+  border-left: $border-left $color;
+}
+
+@mixin padding($top, $right: $top, $bottom: $top, $left: $right) {
+  padding-top: $top;
+  padding-right: $right;
+  padding-bottom: $bottom;
+  padding-left: $left;
+}
+//Margin mixin
+@mixin margin($top, $right: $top, $bottom: $top, $left: $right) {
+  margin-top: $top;
+  margin-right: $right;
+  margin-bottom: $bottom;
+  margin-left: $left;
+}
+
+@mixin rounded($radius: 0.5em) {
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+}
+
+@mixin box-shadow($top, $left, $blur, $spread, $color) {
+  -webkit-box-shadow: $top $left $blur $spread $color;
+  -moz-box-shadow: $top $left $blur $spread $color;
+  box-shadow: $top $left $blur $spread $color;
+}
+
+@mixin button($size: false, $color: false, $font-color: #111827) {
+  @if $size==true {
+    @content;
+  } @else {
+    width: 7rem;
+    height: 2rem;
+  }
+
+  @if $color==true {
+    @content;
+  } @else {
+    $color: white;
+  }
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color;
+  border: 0;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  color: $font-color;
+  font-family: sans-serif;
+  font-weight: 600;
+  line-height: 1.25rem;
+  text-align: center;
+  text-decoration: none #d1d5db solid;
+  text-decoration-thickness: auto;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+  &:hover {
+    background-color: shade($color, 3%);
+  }
+
+  &:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  &:focus-visible {
+    box-shadow: none;
+  }
+}
+
+@mixin text($size: false, $color: #ffffff, $font-color: #111827) {
+  @if $size==true {
+    @content;
+  }
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color;
+  border: 0;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  color: $font-color;
+  font-family: sans-serif;
+  font-weight: 600;
+  line-height: 1.25rem;
+  padding: 0.75rem 1rem;
+  text-decoration: none #d1d5db solid;
+  text-decoration-thickness: auto;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+  &:hover {
+    background-color: shade($color, 3%);
+  }
+
+  &:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+
+    &::-webkit-input-placeholder {
+      transition: all 1s;
+      color: transparent;
+    }
+  }
+}

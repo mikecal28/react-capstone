@@ -1,0 +1,63 @@
+.login-page {
+  @include flex(cn);
+  @include box(100vw, calc(100vh - 5rem));
+  background-image: url("../../assets/vimal-s-AVtaJiElubk-unsplash.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: raiseBackground 1s;
+
+  .login-wrapper {
+    @include box(25rem, 30rem);
+    align-self: center;
+    padding: 4rem 0 3rem 0;
+    font-size: 2rem;
+    color: transparentize($color: white, $amount: 0.2);
+    @include flex(cn, space-around);
+    backdrop-filter: blur(16px);
+    background-color: rgba(178, 60, 253, 0.1);
+    border-radius: 1rem;
+    user-select: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    animation: fadeIn 1s;
+
+    .text-field {
+      @include text(true) {
+        width: 15rem;
+      }
+      opacity: 0.7;
+      margin: 2rem 0;
+
+      &::-webkit-input-placeholder {
+        color: darken(black, 100%);
+      }
+    }
+
+    .submit-button {
+      @include button();
+      opacity: 0.7;
+    }
+  }
+}
+
+@keyframes raiseBackground {
+  from {
+    background-position: top;
+  }
+  to {
+    background-position: center;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

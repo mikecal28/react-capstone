@@ -1,0 +1,50 @@
+.home-page {
+  @include flex(cn);
+  @include box(100vw, calc(100vh - 5rem));
+  background-image: url("../../assets/vimal-s-AVtaJiElubk-unsplash.jpg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: lowerBackground 1s;
+
+  .hero-wrapper {
+    @include box(50vw, 15vw);
+    @include flex(cn);
+    border: 5px double $nav-background;
+    background-color: white;
+    opacity: 0.7;
+    animation: fadeInHome 1s;
+
+    h5 {
+      margin: 0;
+      padding: 0;
+      font-size: min(3.5vw, 6rem);
+    }
+
+    h1 {
+      margin: 0;
+      padding: 0;
+      font-size: min(6.5vw, 8rem);
+    }
+  }
+}
+
+@keyframes lowerBackground {
+  from {
+    background-position: center;
+  }
+  to {
+    background-position: top;
+  }
+}
+
+@keyframes fadeInHome {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 0.7;
+    transform: translateY(0);
+  }
+}
