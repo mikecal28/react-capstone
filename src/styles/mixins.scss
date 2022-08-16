@@ -105,7 +105,7 @@
   }
 }
 
-// Positions Start:
+// Positioning:
 
 @mixin abs-position($top: null, $right: null, $bottom: null, $left: null) {
   position: absolute;
@@ -131,8 +131,6 @@
   left: $left;
 }
 
-// Positions End.
-
 @mixin text-shorten {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -155,6 +153,8 @@
     bottom: 0;
   }
 }
+
+// Modify Color:
 
 @function shade($color, $percent) {
   @if not _is-color($color) {
@@ -187,13 +187,15 @@
   border-left: $border-left $color;
 }
 
+//Padding/Margin:
+
 @mixin padding($top, $right: $top, $bottom: $top, $left: $right) {
   padding-top: $top;
   padding-right: $right;
   padding-bottom: $bottom;
   padding-left: $left;
 }
-//Margin mixin
+
 @mixin margin($top, $right: $top, $bottom: $top, $left: $right) {
   margin-top: $top;
   margin-right: $right;

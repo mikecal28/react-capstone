@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 
 function WidgetItem(props) {
-  const { name } = props.widget;
+  const { name, url } = props.widget;
 
   return (
-    <div>
-      <h3>
-        <Link to={`/widgets-dashboard/${name}`}>{name}</Link>
-      </h3>
-    </div>
+    <Link to={`/widgets-dashboard/${url}`}>
+      <div className="widget-item">
+        <h3>{name}</h3>
+      </div>
+    </Link>
   );
 }
 

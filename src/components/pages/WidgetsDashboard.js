@@ -4,19 +4,14 @@ import SwapiSearch from "../widgets/SwapiSearch";
 import WidgetItem from "../items/WidgetItem";
 
 function WidgetsDashboard() {
-  const widgets = [{ widget: SwapiSearch, name: "swapi-search" }];
+  const widgets = [{ name: "Swapi Search", url: "swapi-search" }];
 
   const renderCards = () => {
     return widgets.map((widget, idx) => {
       return <WidgetItem key={idx} widget={widget} />;
     });
   };
-  return (
-    <div className="widgets-dashboard">
-      <div className="page-title">Widgets Dashboard</div>
-      {renderCards()}
-    </div>
-  );
+  return <div className="widgets-dashboard">{renderCards()}</div>;
 }
 
 export default WidgetsDashboard;

@@ -2,7 +2,7 @@
   @include flex(cn);
   @include box(100vw, calc(100vh - 5rem));
   background-image: url("../../assets/vimal-s-AVtaJiElubk-unsplash.jpg");
-  background-position: top;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   animation: lowerBackground 1s;
@@ -31,17 +31,17 @@
 
 @keyframes lowerBackground {
   from {
-    background-position: center;
+    background-position: top;
   }
   to {
-    background-position: top;
+    background-position: center;
   }
 }
 
 @keyframes fadeInHome {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(-24px);
   }
   to {
     opacity: 0.7;
