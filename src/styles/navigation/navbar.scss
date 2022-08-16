@@ -3,6 +3,17 @@
   background-color: $nav-background;
   @include box(100%, 5rem);
 
+  .widgets-dashboard-navbar {
+    width: 100%;
+    @include flex(rn, space-between);
+
+    .page-title {
+      color: white;
+      font-size: 3rem;
+      white-space: nowrap;
+    }
+  }
+
   .nav-buttons {
     user-select: none;
     font-weight: 600;

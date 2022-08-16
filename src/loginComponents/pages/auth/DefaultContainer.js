@@ -1,7 +1,8 @@
 import { useEffect, useContext } from "react";
 import { Switch, Route } from "react-router-dom";
 import { UserContext } from "../../UserProvider";
-import WidgetsDashboard from "../WidgetsDashboard";
+import WidgetsDashboard from "../../../components/pages/WidgetsDashboard";
+import WidgetPage from "../../../components/pages/WidgetPage";
 
 function Logout() {
   const { logout } = useContext(UserContext);
@@ -15,10 +16,17 @@ function Logout() {
 
 function DefaultContainer() {
   return (
-    <Switch>
-      <Route path="/widgets-dashboard" component={WidgetsDashboard} />
-      <Route path="/logout" component={Logout} />
-    </Switch>
+    <div className="default-container">
+      <Switch>
+        <Route exact path="/widgets-dashboard" component={WidgetsDashboard} />
+        <Route
+          exact
+          path="/widgets-dashboard/:widget_id"
+          component={WidgetPage}
+        />
+        <Route path="/logout" component={Logout} />
+      </Switch>
+    </div>
   );
 }
 
