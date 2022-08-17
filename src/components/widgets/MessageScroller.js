@@ -20,8 +20,8 @@ function MessageScroller() {
     `;
 
   const Text = styled.div`
-    position: relative;
-    top: 22.25rem;
+    position: absolute;
+    top: 27rem;
     right: -43rem;
     height: 100%;
     width: fit-content;

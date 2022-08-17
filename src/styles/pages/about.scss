@@ -1,4 +1,46 @@
 .about {
   @include box(100vw, max(100%, calc(100vh - 5rem)));
-  @include flex(cn, flex-start);
+  @include flex(cn);
+
+  .description {
+    @include flex(cn, flex-start);
+    color: white;
+    margin: 2.5rem;
+    width: 60rem;
+    height: 20rem;
+    background-color: $card-background;
+    box-shadow: 0px 0px 0px 5px #a0a0a0, inset 0px 10px 27px -8px #141414,
+      inset 0px -10px 27px -8px #a31925, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+
+    h1 {
+      text-shadow: 1px 1px black;
+      margin-bottom: 0;
+    }
+
+    p {
+      padding: 3rem;
+      font-size: 1.75rem;
+    }
+  }
+
+  .learned {
+    @include flex(cn, flex-start);
+    color: white;
+    margin: 1.5rem;
+    width: 60rem;
+    height: 20rem;
+    background-color: $card-background;
+    box-shadow: 0px 0px 0px 5px #a0a0a0, inset 0px 10px 27px -8px #141414,
+      inset 0px -10px 27px -8px #a31925, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+
+    h1 {
+      text-shadow: 1px 1px black;
+      margin-bottom: 0;
+    }
+
+    p {
+      padding: 0 3rem 3rem 3rem;
+      font-size: 1.75rem;
+    }
+  }
 }

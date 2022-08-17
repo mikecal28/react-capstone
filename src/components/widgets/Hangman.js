@@ -30,7 +30,7 @@ function Hangman() {
     }
   };
 
-  const renderInputs = () => {
+  const renderCharSlots = () => {
     return gameWord
       ? gameWord.split("").map((char, idx) => (
           <div key={idx} className="chars">
@@ -78,7 +78,7 @@ function Hangman() {
           value={guess}
         />
         <button onClick={handleSubmit}>Submit</button>
-        <div className="correct-guesses">{renderInputs()}</div>
+        <div className="correct-guesses">{renderCharSlots()}</div>
         {score === 6 && <h2>{gameWord}</h2>}
       </div>
     </div>

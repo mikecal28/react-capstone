@@ -8,6 +8,9 @@
     @include flex(cn);
     background-color: white;
     margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 1);
 
     .hangman-wrapper {
       @include box(100%);
@@ -17,12 +20,17 @@
     }
 
     button {
-      @include button(true, lightcyan) {
+      @include button(true, true) {
+        background-color: $main-background;
         width: 12rem;
         height: 3rem;
         font-size: 2rem;
       }
-      @include rel-position(-3rem);
+      @include rel-position(0rem);
+
+      &:hover {
+        background-color: shade($main-background, 5%);
+      }
     }
 
     .guess {
@@ -31,7 +39,7 @@
         height: 3rem;
         font-size: 1.75rem;
         text-align: center;
-        @include rel-position(-4rem);
+        @include rel-position(-1rem);
       }
 
       box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,

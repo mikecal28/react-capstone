@@ -7,7 +7,7 @@ function UserProvider({ children }) {
   const history = useHistory();
   const match = useRouteMatch();
   const [user, setUser] = useState(null);
-  const [authIsLoading, setAuthIsLoading] = useState(true);
+  const [authIsLoading, setAuthIsLoading] = useState(false);
 
   function logout() {
     fetch("https://devpipeline-mock-api.herokuapp.com/api/auth/logout", {
