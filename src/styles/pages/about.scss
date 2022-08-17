@@ -1,0 +1,4 @@
+.about {
+  @include box(100vw, max(100%, calc(100vh - 5rem)));
+  @include flex(cn, flex-start);
+}

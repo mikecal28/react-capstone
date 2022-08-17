@@ -2,10 +2,6 @@
   @include box(100vw, max(100%, calc(100vh - 5rem)));
   @include flex(cn, flex-start);
 
-  h1 {
-    white-space: nowrap;
-  }
-
   .hangman-container {
     @include rel-position(2rem);
     @include box(fit-content);

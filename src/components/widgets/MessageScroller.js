@@ -35,7 +35,6 @@ function MessageScroller() {
 
   return (
     <div className="message-scroller">
-      <h1>Message Scroller</h1>
       <Text>{message}</Text>
       <div className="message-scroller-cover">
         <div className="message-scroller-wrapper"></div>

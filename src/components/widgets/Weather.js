@@ -45,8 +45,9 @@ function Weather() {
 
   return (
     <div className="weather">
-      <h1>Weather</h1>
-      <div className="weather-wrapper">{renderForecast()}</div>
+      <div className="weather-wrapper">
+        {forecast[0] ? renderForecast() : <h2>...Loading</h2>}
+      </div>
     </div>
   );
 }

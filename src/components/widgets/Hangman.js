@@ -46,7 +46,6 @@ function Hangman() {
 
   return (
     <div className="hangman">
-      <h1>Hangman</h1>
       <div className="hangman-container">
         <div className="hangman-wrapper">
           <img

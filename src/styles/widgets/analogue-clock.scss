@@ -1,4 +1,32 @@
 .analogue-clock {
   @include box(100vw, max(100%, calc(100vh - 5rem)));
   @include flex(cn, flex-start);
+
+  .analogue-clock-wrapper {
+    @include rel-position(5rem);
+    @include box(20rem, 25rem);
+    background-color: $card-background;
+    user-select: none;
+    border-radius: 2rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+    .clock-face {
+      @include box(15rem);
+      background-color: white;
+      border-radius: 50%;
+      @include border();
+      @include abs-position(18.5%, null, null, 13%);
+    }
+
+    .center-piece {
+      @include box(1rem);
+      border-radius: 50%;
+      position: absolute;
+      top: 46.5%;
+      left: 48%;
+      background-color: black;
+    }
+  }
 }

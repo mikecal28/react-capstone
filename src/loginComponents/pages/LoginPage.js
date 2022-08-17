@@ -1,5 +1,5 @@
-import { useState, useEffect, useContext } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 
 import { UserContext } from "../UserProvider";
 
@@ -39,23 +39,6 @@ function LoginPage(props) {
         setErrorMsg("Invalid Credentials");
         console.error("Login Error: ", err);
       });
-
-    //   setTimeout(() => {
-    //     if (email === "mike@example.com" && password === "1234") {
-    //       setUser({
-    //         id: 1,
-    //         first_name: "mike",
-    //         last_name: "caldwell",
-    //         role: "admin",
-    //       });
-    //       setAuthIsLoading(false);
-    //       history.push("/dashboard");
-    //     } else {
-    //       setUser(null);
-    //       setAuthIsLoading(false);
-    //       setErrorMsg("Invalid Credentials");
-    //     }
-    //   }, 3000);
   }
 
   return (
@@ -86,12 +69,13 @@ function LoginPage(props) {
           </div>
 
           <div>
-            <input className="submit-button" type="submit" />
-            {/* {authIsLoading && !errorMsg ? (
-            <input type="submit" />
-          ) : (
-            <h1>...submitting</h1>
-          )} */}
+            {!authIsLoading && !errorMsg ? (
+              <input className="submit-button" type="submit" />
+            ) : !errorMsg ? (
+              <h5 style={{ margin: 0, padding: 0 }}>...submitting</h5>
+            ) : (
+              <h5 style={{ margin: 0, padding: 0 }}>{errorMsg}</h5>
+            )}
           </div>
           {errorMsg}
         </form>

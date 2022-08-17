@@ -1,6 +1,3 @@
-import { Link } from "react-router-dom";
-
-import SwapiSearch from "../widgets/SwapiSearch";
 import WidgetItem from "../items/WidgetItem";
 
 function WidgetsDashboard() {

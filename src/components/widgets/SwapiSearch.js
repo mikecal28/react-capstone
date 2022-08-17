@@ -96,14 +96,17 @@ function SwapiSearch() {
 
   return (
     <div className="swapi-search">
-      <h1>SWAPI Search</h1>
       <div className="input-wrapper">
         <input
           onChange={(e) => setSearchInput(e.target.value)}
           type="text"
           value={searchInput}
         />
-        <button className="submit-button" onClick={(e) => handleSubmit(e)}>
+        <button
+          className="submit-button"
+          onClick={(e) => handleSubmit(e)}
+          disabled={searchQuery ? "disabled" : null}
+        >
           Submit
         </button>
       </div>

@@ -2,13 +2,8 @@
   @include box(100vw, max(100%, calc(100vh - 5rem)));
   @include flex(cn, flex-start);
 
-  h1 {
-    order: -1;
-  }
-
   .radio-buttons {
     @include flex();
-    order: -1;
 
     div {
       @include flex(rn, center, baseline);

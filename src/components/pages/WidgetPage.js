@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import Hangman from "../widgets/Hangman";
 import MessageScroller from "../widgets/MessageScroller";
 import SwapiSearch from "../widgets/SwapiSearch";
