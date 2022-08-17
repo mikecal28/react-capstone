@@ -86,7 +86,7 @@
     .search-result {
       @include flex(cn, flex-start, flex-start);
       width: 20rem;
-      max-height: 30rem;
+      max-height: 14.75rem;
       overflow-y: auto;
       color: lighten($main-background, 50%);
       background-color: $card-background;

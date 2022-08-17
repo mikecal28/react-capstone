@@ -1,6 +1,8 @@
 .widgets-dashboard {
   @include box(100vw, calc(100vh - 5rem));
   @include flex();
+  column-gap: 6rem;
+  row-gap: 2rem;
 
   a {
     width: 15rem;
@@ -17,8 +19,8 @@
       @include flex();
       color: white;
       flex: 1 0;
-      max-width: 15rem;
-      min-width: 15rem;
+      max-width: 18rem;
+      min-width: 18rem;
       min-height: 15rem;
       box-shadow: 0 0 10px rgba($color: black, $alpha: 0.5);
       text-shadow: 1px 1px black;

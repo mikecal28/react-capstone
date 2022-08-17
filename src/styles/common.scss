@@ -3,7 +3,23 @@ body {
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  scrollbar-gutter: auto stable && both-edges;
   font-size: 16px;
   font-family: sans-serif;
   background-color: rgb(145, 209, 209);
+  overflow-x: hidden;
+
+  ::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: $nav-background;
+    height: 8px;
+  }
 }

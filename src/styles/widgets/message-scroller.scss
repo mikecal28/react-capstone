@@ -1,0 +1,52 @@
+.message-scroller {
+  @include box(100vw, 100vh);
+  @include abs-position(5rem);
+  @include flex(cn, flex-start);
+  background-color: black;
+
+  h1 {
+    white-space: nowrap;
+    @include rel-position();
+    z-index: 1;
+  }
+
+  .message-scroller-cover {
+    @include box(100vw, 60rem);
+    @include abs-position(0rem);
+    display: flex;
+    justify-content: center;
+    // @include rel-position(-10rem);
+
+    background-color: $main-background;
+    clip-path: polygon(
+      0% 0%,
+      0% 100%,
+      20% 100%,
+      20% 45%,
+      80% 45%,
+      80% 55%,
+      20% 55%,
+      20% 100%,
+      100% 100%,
+      100% 0%
+    );
+
+    .message-scroller-wrapper {
+      @include box(80vw, 20rem);
+      @include abs-position(20rem);
+      background-color: $nav-background;
+      border-radius: 2rem;
+      box-shadow: 0 0 7px rgba(0, 0, 0, 1);
+    }
+  }
+
+  textarea {
+    @include abs-position(10rem);
+
+    @include text(true) {
+      width: 50%;
+      height: 5rem;
+    }
+    resize: none;
+  }
+}

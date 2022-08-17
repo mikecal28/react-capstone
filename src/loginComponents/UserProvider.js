@@ -1,10 +1,11 @@
 import { useState, useEffect, createContext } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useRouteMatch } from "react-router-dom";
 
 export const UserContext = createContext();
 
 function UserProvider({ children }) {
   const history = useHistory();
+  const match = useRouteMatch();
   const [user, setUser] = useState(null);
   const [authIsLoading, setAuthIsLoading] = useState(true);
 

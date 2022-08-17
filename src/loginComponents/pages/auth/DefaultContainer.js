@@ -19,11 +19,7 @@ function DefaultContainer() {
     <div className="default-container">
       <Switch>
         <Route exact path="/widgets-dashboard" component={WidgetsDashboard} />
-        <Route
-          exact
-          path="/widgets-dashboard/:widget_id"
-          component={WidgetPage}
-        />
+        <Route path="/widgets-dashboard/:widgetId" component={WidgetPage} />
         <Route path="/logout" component={Logout} />
       </Switch>
     </div>

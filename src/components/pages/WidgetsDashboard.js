@@ -4,7 +4,13 @@ import SwapiSearch from "../widgets/SwapiSearch";
 import WidgetItem from "../items/WidgetItem";
 
 function WidgetsDashboard() {
-  const widgets = [{ name: "Swapi Search", url: "swapi-search" }];
+  const widgets = [
+    { name: "Swapi Search", url: "swapi-search" },
+    { name: "Weather", url: "weather" },
+    { name: "Hangman", url: "hangman" },
+    { name: "Message Scroller", url: "message-scroller" },
+    { name: "Analogue Clock", url: "analogue-clock" },
+  ];
 
   const renderCards = () => {
     return widgets.map((widget, idx) => {
