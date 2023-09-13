@@ -10,7 +10,7 @@ function About() {
           months. Throughout the site you can explore a few examples of the
           kinds of things I have learned. The widgets are far from perfect, but
           they provide insight into the skills I've acquired throughout this
-          course.{" "}
+          course. - July 2022{" "}
         </p>
       </div>
       <div className="learned">
